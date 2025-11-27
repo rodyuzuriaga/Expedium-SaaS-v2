@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Project specific files
+TF - Cloud Computing - Grupo Nº05.md
+COMPARACION_FUNCIONALIDADES.md
