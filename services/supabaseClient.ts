@@ -8,11 +8,26 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Initialize with explicit schema definition to avoid PGRST106 errors
 // This ensures we target the 'public' schema where your tables reside.
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-  db: {
-    schema: 'public',
-  },
-});
+let supabase: any;
+if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+  supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { db: { schema: 'public' } });
+} else {
+  // Provide a safe mock implementation for local/dev usage without breaking the app
+  supabase = {
+    auth: {
+      async getSession() { return { data: { session: null } }; },
+      onAuthStateChange(_fn: any) { return { data: { subscription: { unsubscribe() {} } } }; }
+    },
+    from(_table: string) {
+      return {
+        async select() { return { data: [], error: null }; },
+        async insert(_payload: any) { return { data: null, error: { message: 'Supabase not configured' } }; },
+        async update(_payload: any) { return { data: null, error: { message: 'Supabase not configured' } }; },
+        async delete() { return { data: null, error: { message: 'Supabase not configured' } }; }
+      };
+    }
+  };
+}
 
 // Helper to map DB row (snake_case) to Frontend model (camelCase)
 export const mapDocFromDB = (row: any): DocRecord => ({
