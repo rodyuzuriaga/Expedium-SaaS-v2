@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AnalysisResult, DocumentType, UrgencyLevel } from "../types";
 
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyBFFPcrudsj-C65aZAm3cBXLUTTAMp14WQ';
 
 // We create the client lazily to handle cases where key might be missing initially or handled via UI in a real app
 const getAiClient = () => {
