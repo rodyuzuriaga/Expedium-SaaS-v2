@@ -250,7 +250,7 @@ const LoginPage = ({ onLogin }: { onLogin: (email: string) => void }) => {
           <div className="pt-6 border-t border-slate-900 text-center">
             <p className="text-xs text-slate-600">
               Acceso restringido. Su dirección IP está siendo monitoreada.
-              <br/>© 2024 Ministerio de Relaciones Exteriores del Perú.
+              <br/>© 2025 Ministerio de Relaciones Exteriores del Perú.
             </p>
           </div>
         </div>
@@ -513,7 +513,7 @@ const MesaPartes = ({ onAddDocument }: { onAddDocument: (doc: DocRecord) => void
             <h2 className="text-lg font-bold text-slate-800 flex items-center gap-2">
               <Zap className="text-amber-500" fill="currentColor" /> Análisis Inteligente
             </h2>
-            <span className="text-xs font-mono bg-slate-200 px-2 py-1 rounded text-slate-600">CONFIDENCE: 98%</span>
+            {/* <span className="text-xs font-mono bg-slate-200 px-2 py-1 rounded text-slate-600">CONFIDENCE: 98%</span>*/}
           </div>
 
           <form onSubmit={handleSubmit} className="p-6 space-y-5 flex-1 overflow-y-auto">

@@ -3,8 +3,8 @@ import { createClient } from '@supabase/supabase-js';
 import { DocRecord, DocumentStatus, DocumentType, UrgencyLevel } from '../types';
 
 // Environment variables
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://zcqxasctfnihvnjvolmx.supabase.co';
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpjcXhhc2N0Zm5paHZuanZvbG14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxMzI5MTAsImV4cCI6MjA3OTcwODkxMH0.0NGEgWtXw3RjzrSxbzmdyTuiusYtn0WLjNY610a6kUA';
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Initialize with explicit schema definition to avoid PGRST106 errors
 // This ensures we target the 'public' schema where your tables reside.
